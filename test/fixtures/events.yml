@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  start_date: 2022-12-06
+  end_date: 2022-12-06
+  start_time: MyString
+  end_time: MyString
+  total_sits: 1
+  remaining_sits: 1
+  entrance_fee: 1.5
+
+two:
+  name: MyString
+  description: MyText
+  start_date: 2022-12-06
+  end_date: 2022-12-06
+  start_time: MyString
+  end_time: MyString
+  total_sits: 1
+  remaining_sits: 1
+  entrance_fee: 1.5
