@@ -37,4 +37,14 @@ class StripeService
       { source: token.id }
     )
   end
+
+  def create_stripe_charge(amount_to_be_paid, stripe_customer_id, card_id, event)
+    Stripe::Charge.create({
+      amount: amount_to_be_paid * 100,
+      currency: 'usd',
+      source: card_id,
+      customer: stripe_customer_id,
+      description: "Amount $#{amount_to_be_paid} charged for #{event.name}",
+    })
+  end
 end
