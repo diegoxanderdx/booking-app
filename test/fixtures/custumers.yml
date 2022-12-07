@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  email: MyString
+  contact_number: 1
+  stripe_custumer_id: MyString
+
+two:
+  full_name: MyString
+  email: MyString
+  contact_number: 1
+  stripe_custumer_id: MyString

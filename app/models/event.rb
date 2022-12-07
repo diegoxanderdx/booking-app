@@ -1,8 +1,26 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id             :bigint           not null, primary key
+#  name           :string           not null
+#  description    :text             not null
+#  start_date     :date             not null
+#  end_date       :date             not null
+#  start_time     :string           not null
+#  end_time       :string           not null
+#  total_sits     :integer          not null
+#  remaining_sits :integer          not null
+#  entrance_fee   :float            not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
 class Event < ApplicationRecord
-  validates :name, :description, :start_date, :end_date, :start_time, :end_time, :total_sits, :entrance_fee, presence: true
+  has_many :bookings
+  has_many :customers, through: :bookings
 
-  validates :total_sits, :entrance_fee, numericality: true
-
+  validates :name, :description, :start_date, :end_date, :start_time, :end_time, presence: true
+  validates :total_sits, :entrance_fee, presence: true, numericality: true
   validates :end_date, comparison: { greater_than_or_equal_to: :start_date, message: 'can not be before start date' }
 
   def total_duration
