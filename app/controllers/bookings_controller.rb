@@ -27,6 +27,10 @@ class BookingsController < ApplicationController
     redirect_to event_path(@event), alert: "#{error.message}"
   end
 
+  def booking_details
+    @booking = Booking.find(params[:id])
+  end
+
   private
 
   def customer_params

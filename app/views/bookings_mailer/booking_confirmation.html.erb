@@ -9,14 +9,7 @@
 
       <p class="lead">Your booking for <strong><%= @event.name %> has been confirmed. Please find the booking details below.</strong></p>
 
-      <h3>Booking Details</h3>
-      <p><strong>Number of Tickets:</strong><%= @booking.number_of_tickets %></p>
-      <p><strong>Amount Paid:</strong><%= @booking.amount_paid %></p>
-
-      <hr>
-
-      <h3>Event Schedule</h3>
-      <h4><span class="badge bg-primary"><%= @event.total_duration%></span></h4>
+      <%= @svg.html_safe %>
     </div>
   </div>
 </div>
