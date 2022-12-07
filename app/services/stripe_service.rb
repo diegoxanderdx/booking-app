@@ -25,7 +25,7 @@ class StripeService
         number: params[:card_number].to_s,
         exp_month: params[:exp_month],
         exp_year: params[:exp_year],
-        cvc: params[:cvv],
+        cvc: params[:cvv]
       }
     })
   end
@@ -44,7 +44,7 @@ class StripeService
       currency: 'usd',
       source: card_id,
       customer: stripe_customer_id,
-      description: "Amount $#{amount_to_be_paid} charged for #{event.name}",
+      description: "Amount $#{amount_to_be_paid} charged for #{event.name}"
     })
   end
 end
