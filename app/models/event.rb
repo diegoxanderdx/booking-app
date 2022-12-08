@@ -23,7 +23,16 @@ class Event < ApplicationRecord
   validates :total_sits, :entrance_fee, presence: true, numericality: true
   validates :end_date, comparison: { greater_than_or_equal_to: :start_date, message: 'can not be before start date' }
 
+  scope :upcoming_events, -> { where('start_date > ?', Date.today) }
+
+  scope :past_events, -> { where('end_date < ?', Date.today) }
+
   def total_duration
     "From #{start_date} at #{start_time} to #{end_date} at #{end_time}"
   end
+
+  def is_upcoming_event?
+   start_date > Date.today
+  end
+
 end
