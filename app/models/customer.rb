@@ -5,7 +5,7 @@
 #  id                 :bigint           not null, primary key
 #  full_name          :string           not null
 #  email              :string           not null
-#  contact_number     :integer          not null
+#  contact_number     :string           not null
 #  stripe_customer_id :string           not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null

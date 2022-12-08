@@ -11,9 +11,10 @@
 #  end_time       :string           not null
 #  total_sits     :integer          not null
 #  remaining_sits :integer          not null
-#  entrance_fee   :float            not null
+#  entrance_fee   :bigint           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  slug           :string
 #
 require "test_helper"
 
