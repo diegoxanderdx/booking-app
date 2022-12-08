@@ -46,13 +46,13 @@ events = Event.create([
     entrance_fee: 150.50
   },
   {
-    name:"The cranberrys live at Stadium",
+    name:"The cranberrys live at Theather",
     description: "Dummy description for this concert. Dummy description for this concert. Dummy description for this concert. Dummy description for this concert. Dummy description for this concert. Dummy description for this concert. Dummy description for this concert. Dummy description for this concert.",
     start_date: Date.today - 9.days,
     end_date: Date.today - 8.days,
     start_time: "6:00 PM",
     end_time: "1:00 AM",
-    total_sits: 25000,
+    total_sits: 250,
     remaining_sits: 0,
     entrance_fee: 180.50
   },

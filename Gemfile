@@ -77,3 +77,4 @@ gem 'cssbundling-rails'
 gem 'annotate'
 gem 'stripe'
 gem "rqrcode", "~> 2.0"
+gem 'friendly_id', '~> 5.4.0'

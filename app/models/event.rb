@@ -16,6 +16,9 @@
 #  updated_at     :datetime         not null
 #
 class Event < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :bookings
   has_many :customers, through: :bookings
 
