@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_08_172124) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_08_195454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,6 +80,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_08_172124) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "refunds", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.bigint "booking_id", null: false
+    t.integer "number_of_tickets"
+    t.string "state"
+    t.string "stripe_refund_id"
+    t.boolean "is_partial_refund"
+    t.float "amount_refunded"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_refunds_on_booking_id"
+    t.index ["customer_id"], name: "index_refunds_on_customer_id"
+  end
+
   add_foreign_key "bookings", "customers"
   add_foreign_key "bookings", "events"
+  add_foreign_key "refunds", "bookings"
+  add_foreign_key "refunds", "customers"
 end

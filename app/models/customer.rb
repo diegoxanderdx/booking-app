@@ -13,6 +13,7 @@
 class Customer < ApplicationRecord
   has_many :bookings
   has_many :events, through: :bookings
+  has_many :refunds
 
   validates :full_name, :contact_number, :stripe_customer_id, presence: true
   validates :email, presence: true, uniqueness: true

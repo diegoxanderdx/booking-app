@@ -23,9 +23,10 @@ class Event < ApplicationRecord
   has_many :bookings
   has_many :customers, through: :bookings
 
-  validates :name, :description, :start_date, :end_date, :start_time, :end_time, presence: true
+  validates :description, :start_date, :end_date, :start_time, :end_time, presence: true
   validates :total_sits, :entrance_fee, presence: true, numericality: true
   validates :end_date, comparison: { greater_than_or_equal_to: :start_date, message: 'can not be before start date' }
+  validates :name, presence: true, uniqueness: true
 
   scope :upcoming_events, -> { where('start_date > ?', Date.today) }
 
