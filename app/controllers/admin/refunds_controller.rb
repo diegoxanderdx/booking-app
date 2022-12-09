@@ -14,6 +14,8 @@ class Admin::RefundsController < AdminController
     end
     @refund.state = 'success'
     @refund.save
+    RefundNotificationMailer.refund_success_notification_to_customer(@refund).deliver_now
+    RefundNotificationMailer.refund_success_notification_to_admin(@refund).deliver_now
     redirect_to admin_dashboard_path, notice: 'Refund processed successfully'
   rescue Stripe::StripeError => error
     redirect_to admin_dashboard_path, alert: error.message
